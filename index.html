@@ -45,6 +45,12 @@
       text-decoration: none;
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
     .nav-links {
       display: flex;
       gap: 2rem;
@@ -72,6 +78,33 @@
     }
 
     .nav-cta:hover { background: var(--brown) !important; color: var(--white) !important; }
+
+    /* Language switcher */
+    .lang-switcher {
+      display: flex;
+      gap: 4px;
+      background: var(--gold-muted);
+      border-radius: 20px;
+      padding: 3px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 16px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--brown);
+      transition: background 0.2s, color 0.2s;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .lang-btn.active {
+      background: var(--gold);
+      color: var(--white);
+    }
 
     /* Hamburger */
     .hamburger {
@@ -324,6 +357,8 @@
 
       .about { flex-direction: column; text-align: center; }
       .about-img { width: 160px; height: 160px; font-size: 3.5rem; }
+
+      .nav-right { gap: 0.8rem; }
     }
   </style>
 </head>
@@ -331,49 +366,55 @@
 
   <!-- NAV -->
   <nav>
-    <a class="logo" href="#">Mindful Psychology</a>
+    <a class="logo" href="#" data-en="Mindful Psychology" data-ru="Осознанная Психология">Mindful Psychology</a>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#contact" class="nav-cta">Book a Session</a></li>
-    </ul>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-btn active" id="btnEn" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btnRu" onclick="setLang('ru')">RU</button>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services" data-en="Services" data-ru="Услуги">Services</a></li>
+        <li><a href="#about" data-en="About" data-ru="О враче">About</a></li>
+        <li><a href="#testimonials" data-en="Testimonials" data-ru="Отзывы">Testimonials</a></li>
+        <li><a href="#contact" class="nav-cta" data-en="Book a Session" data-ru="Записаться">Book a Session</a></li>
+      </ul>
+    </div>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <h1>Your Journey to <span>Inner Clarity</span><br>Starts Here</h1>
-    <p>Compassionate, evidence-based therapy to help you navigate life's challenges and rediscover your sense of self.</p>
-    <a href="#contact" class="btn">Schedule a Free Consultation</a>
+    <h1 data-en="Your Journey to <span>Inner Clarity</span><br>Starts Here" data-ru="Ваш путь к <span>внутренней ясности</span><br>начинается здесь">Your Journey to <span>Inner Clarity</span><br>Starts Here</h1>
+    <p data-en="Compassionate, evidence-based therapy to help you navigate life's challenges and rediscover your sense of self." data-ru="Сострадательная терапия, основанная на доказательствах, поможет вам справиться с жизненными трудностями и вновь обрести себя.">Compassionate, evidence-based therapy to help you navigate life's challenges and rediscover your sense of self.</p>
+    <a href="#contact" class="btn" data-en="Schedule a Free Consultation" data-ru="Записаться на бесплатную консультацию">Schedule a Free Consultation</a>
   </section>
 
   <!-- SERVICES -->
   <section class="services" id="services">
-    <p class="section-sub">What I Offer</p>
-    <h2 class="section-title">Areas of Support</h2>
+    <p class="section-sub" data-en="What I Offer" data-ru="Что я предлагаю">What I Offer</p>
+    <h2 class="section-title" data-en="Areas of Support" data-ru="Направления работы">Areas of Support</h2>
     <div class="cards">
       <div class="card">
         <div class="card-icon">🧠</div>
-        <h3>Anxiety & Stress</h3>
-        <p>Learn tools to calm your nervous system and build resilience for everyday challenges.</p>
+        <h3 data-en="Anxiety & Stress" data-ru="Тревога и стресс">Anxiety & Stress</h3>
+        <p data-en="Learn tools to calm your nervous system and build resilience for everyday challenges." data-ru="Освойте техники успокоения нервной системы и повысьте устойчивость к ежедневным трудностям.">Learn tools to calm your nervous system and build resilience for everyday challenges.</p>
       </div>
       <div class="card">
         <div class="card-icon">💛</div>
-        <h3>Depression</h3>
-        <p>Gentle, structured support to help you reconnect with meaning and motivation.</p>
+        <h3 data-en="Depression" data-ru="Депрессия">Depression</h3>
+        <p data-en="Gentle, structured support to help you reconnect with meaning and motivation." data-ru="Мягкая, структурированная поддержка для восстановления смысла и мотивации.">Gentle, structured support to help you reconnect with meaning and motivation.</p>
       </div>
       <div class="card">
         <div class="card-icon">🤝</div>
-        <h3>Relationships</h3>
-        <p>Improve communication patterns and build deeper, more fulfilling connections.</p>
+        <h3 data-en="Relationships" data-ru="Отношения">Relationships</h3>
+        <p data-en="Improve communication patterns and build deeper, more fulfilling connections." data-ru="Улучшите паттерны общения и создайте более глубокие, наполненные связи.">Improve communication patterns and build deeper, more fulfilling connections.</p>
       </div>
       <div class="card">
         <div class="card-icon">🌱</div>
-        <h3>Personal Growth</h3>
-        <p>Explore your values and potential through introspection and goal-oriented therapy.</p>
+        <h3 data-en="Personal Growth" data-ru="Личностный рост">Personal Growth</h3>
+        <p data-en="Explore your values and potential through introspection and goal-oriented therapy." data-ru="Исследуйте свои ценности и потенциал через самоанализ и целенаправленную терапию.">Explore your values and potential through introspection and goal-oriented therapy.</p>
       </div>
     </div>
   </section>
@@ -382,28 +423,28 @@
   <section class="about" id="about">
     <div class="about-img">🌿</div>
     <div class="about-text">
-      <h2>Hi, I'm Dr. Sarah Ellis</h2>
-      <p>I'm a licensed clinical psychologist with over 12 years of experience helping individuals and couples navigate anxiety, depression, trauma, and life transitions.</p>
-      <p>My approach blends Cognitive Behavioral Therapy (CBT) with mindfulness practices, creating a warm, non-judgmental space for real, lasting change.</p>
-      <a href="#contact" class="btn">Work With Me</a>
+      <h2 data-en="Hi, I'm Dr. Sarah Ellis" data-ru="Привет, я доктор Сара Эллис">Hi, I'm Dr. Sarah Ellis</h2>
+      <p data-en="I'm a licensed clinical psychologist with over 12 years of experience helping individuals and couples navigate anxiety, depression, trauma, and life transitions." data-ru="Я лицензированный клинический психолог с более чем 12-летним опытом помощи людям и парам в преодолении тревоги, депрессии, травм и жизненных перемен.">I'm a licensed clinical psychologist with over 12 years of experience helping individuals and couples navigate anxiety, depression, trauma, and life transitions.</p>
+      <p data-en="My approach blends Cognitive Behavioral Therapy (CBT) with mindfulness practices, creating a warm, non-judgmental space for real, lasting change." data-ru="Мой подход сочетает когнитивно-поведенческую терапию (КПТ) с практиками осознанности, создавая тёплое, безоценочное пространство для настоящих, долгосрочных изменений.">My approach blends Cognitive Behavioral Therapy (CBT) with mindfulness practices, creating a warm, non-judgmental space for real, lasting change.</p>
+      <a href="#contact" class="btn" data-en="Work With Me" data-ru="Работать со мной">Work With Me</a>
     </div>
   </section>
 
   <!-- TESTIMONIALS -->
   <section class="testimonials" id="testimonials">
-    <p class="section-sub">Client Stories</p>
-    <h2 class="section-title">What People Are Saying</h2>
+    <p class="section-sub" data-en="Client Stories" data-ru="Истории клиентов">Client Stories</p>
+    <h2 class="section-title" data-en="What People Are Saying" data-ru="Что говорят клиенты">What People Are Saying</h2>
     <div class="testi-grid">
       <div class="testi">
-        <p>"Working with Dr. Ellis changed my life. I finally feel like I have the tools to manage my anxiety."</p>
+        <p data-en="&ldquo;Working with Dr. Ellis changed my life. I finally feel like I have the tools to manage my anxiety.&rdquo;" data-ru="«Работа с доктором Эллис изменила мою жизнь. Наконец-то у меня есть инструменты для управления тревогой.»">"Working with Dr. Ellis changed my life. I finally feel like I have the tools to manage my anxiety."</p>
         <span>— Jamie T.</span>
       </div>
       <div class="testi">
-        <p>"The sessions are warm, thoughtful, and genuinely transformative. I can't recommend her enough."</p>
+        <p data-en="&ldquo;The sessions are warm, thoughtful, and genuinely transformative. I can't recommend her enough.&rdquo;" data-ru="«Сессии тёплые, вдумчивые и по-настоящему преобразующие. Я не могу не рекомендовать её.»">"The sessions are warm, thoughtful, and genuinely transformative. I can't recommend her enough."</p>
         <span>— Marcus L.</span>
       </div>
       <div class="testi">
-        <p>"I came in skeptical and left with real strategies. The approach here is different — it actually works."</p>
+        <p data-en="&ldquo;I came in skeptical and left with real strategies. The approach here is different — it actually works.&rdquo;" data-ru="«Я пришёл скептически настроенным, а ушёл с реальными стратегиями. Подход здесь другой — он действительно работает.»">"I came in skeptical and left with real strategies. The approach here is different — it actually works."</p>
         <span>— Priya M.</span>
       </div>
     </div>
@@ -411,27 +452,46 @@
 
   <!-- CONTACT -->
   <section class="contact" id="contact">
-    <p class="section-sub">Get In Touch</p>
-    <h2 class="section-title">Book a Session</h2>
-    <form onsubmit="event.preventDefault(); alert('Thank you! We\'ll be in touch soon.');">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Email Address" required />
-      <input type="tel" placeholder="Phone Number (optional)" />
-      <textarea placeholder="What brings you here? (optional)"></textarea>
-      <button type="submit">Send Message</button>
+    <p class="section-sub" data-en="Get In Touch" data-ru="Свяжитесь со мной">Get In Touch</p>
+    <h2 class="section-title" data-en="Book a Session" data-ru="Записаться на приём">Book a Session</h2>
+    <form onsubmit="event.preventDefault(); alert(currentLang === 'ru' ? 'Спасибо! Мы скоро свяжемся с вами.' : 'Thank you! We\'ll be in touch soon.');">
+      <input type="text" data-placeholder-en="Your Name" data-placeholder-ru="Ваше имя" placeholder="Your Name" required />
+      <input type="email" data-placeholder-en="Email Address" data-placeholder-ru="Электронная почта" placeholder="Email Address" required />
+      <input type="tel" data-placeholder-en="Phone Number (optional)" data-placeholder-ru="Телефон (необязательно)" placeholder="Phone Number (optional)" />
+      <textarea data-placeholder-en="What brings you here? (optional)" data-placeholder-ru="Что вас привело? (необязательно)" placeholder="What brings you here? (optional)"></textarea>
+      <button type="submit" data-en="Send Message" data-ru="Отправить сообщение">Send Message</button>
     </form>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 Mindful Psychology · All rights reserved</p>
+    <p data-en="&copy; 2026 Mindful Psychology · All rights reserved" data-ru="&copy; 2026 Осознанная Психология · Все права защищены">&copy; 2026 Mindful Psychology · All rights reserved</p>
   </footer>
 
   <script>
+    let currentLang = 'en';
+
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
     navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+      document.getElementById('btnRu').classList.toggle('active', lang === 'ru');
+
+      // Translate all elements with data-en / data-ru
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const text = el.getAttribute('data-' + lang);
+        if (text) el.innerHTML = text;
+      });
+
+      // Translate placeholders
+      document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+        el.placeholder = el.getAttribute('data-placeholder-' + lang);
+      });
+    }
   </script>
 
 </body>
