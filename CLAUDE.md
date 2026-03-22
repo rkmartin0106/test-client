@@ -15,3 +15,5 @@ Reply format: "Done! See it live here: [URL]"
 - Always send the preview URL after every deploy
 - Keep changes clean and mobile-friendly
 - Use Google Fonts linked in the HTML head
+## Vercel URL
+test-client-g7xiwemb2-roros-projects-e1b252d1.vercel.app
