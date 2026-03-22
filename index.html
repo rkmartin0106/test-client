@@ -4,24 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mindful Psychology</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --gold: #C8922A;
-      --gold-light: #E8B84B;
-      --gold-pale: #FDF6E3;
-      --gold-muted: #F5E6C8;
-      --brown: #6B4C1E;
-      --text: #3D2B0E;
-      --white: #FFFDF7;
+      --ink: #111110;
+      --ink-soft: #4a4945;
+      --cream: #f0ede6;
+      --cream-dark: #e4e0d8;
+      --warm-white: #faf9f7;
+      --accent: #7a6b58;
+      --rule: #d8d4cc;
     }
 
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Lato', sans-serif;
-      color: var(--text);
-      background: var(--white);
+      font-family: 'Inter', sans-serif;
+      color: var(--ink);
+      background: var(--warm-white);
+      font-size: 16px;
+      line-height: 1.6;
     }
 
     /* NAV */
@@ -29,82 +33,82 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--white);
-      border-bottom: 2px solid var(--gold-muted);
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--rule);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 2rem;
+      padding: 1.1rem 2.5rem;
     }
 
     .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--ink);
       text-decoration: none;
+      letter-spacing: 0.02em;
     }
 
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 2rem;
     }
 
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 2.5rem;
       list-style: none;
     }
 
     .nav-links a {
       text-decoration: none;
-      color: var(--brown);
+      color: var(--ink-soft);
       font-weight: 400;
-      font-size: 0.95rem;
-      letter-spacing: 0.04em;
+      font-size: 0.88rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover { color: var(--ink); }
 
     .nav-cta {
-      background: var(--gold);
-      color: var(--white) !important;
-      padding: 0.5rem 1.2rem;
-      border-radius: 24px;
-      font-weight: 700 !important;
-      transition: background 0.2s !important;
+      color: var(--ink) !important;
+      border-bottom: 1px solid var(--ink) !important;
+      padding-bottom: 1px;
+      text-transform: uppercase !important;
     }
 
-    .nav-cta:hover { background: var(--brown) !important; color: var(--white) !important; }
+    .nav-cta:hover { opacity: 0.6; }
 
     /* Language switcher */
     .lang-switcher {
       display: flex;
-      gap: 4px;
-      background: var(--gold-muted);
-      border-radius: 20px;
-      padding: 3px;
+      gap: 2px;
     }
 
     .lang-btn {
       background: none;
       border: none;
-      padding: 4px 10px;
-      border-radius: 16px;
-      font-size: 0.8rem;
-      font-weight: 700;
+      padding: 3px 8px;
+      font-size: 0.78rem;
+      font-weight: 500;
       cursor: pointer;
-      color: var(--brown);
-      transition: background 0.2s, color 0.2s;
-      font-family: 'Lato', sans-serif;
+      color: var(--ink-soft);
+      letter-spacing: 0.06em;
+      font-family: 'Inter', sans-serif;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
     }
 
     .lang-btn.active {
-      background: var(--gold);
-      color: var(--white);
+      color: var(--ink);
+      border-bottom-color: var(--ink);
     }
+
+    .lang-btn:hover { color: var(--ink); }
 
     /* Hamburger */
     .hamburger {
@@ -119,223 +123,349 @@
 
     .hamburger span {
       display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--brown);
-      border-radius: 2px;
+      width: 22px;
+      height: 1px;
+      background: var(--ink);
       transition: 0.3s;
     }
 
     /* HERO */
     .hero {
-      background: linear-gradient(135deg, var(--gold-pale) 0%, var(--gold-muted) 100%);
-      padding: 5rem 2rem;
-      text-align: center;
+      padding: 7rem 2.5rem 6rem;
+      max-width: 1080px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .hero-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+      font-weight: 400;
     }
 
     .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      color: var(--brown);
-      line-height: 1.2;
-      margin-bottom: 1.2rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 2.5rem;
+      max-width: 800px;
     }
 
-    .hero h1 span { color: var(--gold); }
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .hero-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
 
     .hero p {
-      max-width: 560px;
-      margin: 0 auto 2rem;
-      font-size: 1.1rem;
-      color: var(--brown);
-      line-height: 1.7;
+      max-width: 420px;
+      font-size: 1rem;
+      color: var(--ink-soft);
+      line-height: 1.8;
       font-weight: 300;
     }
 
     .btn {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--white);
-      padding: 0.85rem 2.2rem;
-      border-radius: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--ink);
       text-decoration: none;
-      font-weight: 700;
-      font-size: 1rem;
-      transition: background 0.2s, transform 0.15s;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 2px;
+      transition: opacity 0.2s;
+      white-space: nowrap;
     }
 
-    .btn:hover { background: var(--brown); transform: translateY(-2px); }
+    .btn:hover { opacity: 0.5; }
+
+    .btn-arrow::after { content: "→"; }
 
     /* SERVICES */
     .services {
-      padding: 4rem 2rem;
-      text-align: center;
-      background: var(--white);
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 5rem 2.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+      flex-wrap: wrap;
     }
 
     .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      color: var(--brown);
-      margin-bottom: 0.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      color: var(--ink);
+      letter-spacing: -0.01em;
     }
 
-    .section-sub {
-      color: var(--gold);
-      font-size: 0.9rem;
-      letter-spacing: 0.12em;
+    .section-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      margin-bottom: 2.5rem;
-      font-weight: 700;
+      color: var(--accent);
+      font-weight: 400;
+      flex-shrink: 0;
     }
 
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      max-width: 960px;
-      margin: 0 auto;
+      gap: 0;
+      border-top: 1px solid var(--rule);
     }
 
     .card {
-      background: var(--gold-pale);
-      border: 1px solid var(--gold-muted);
-      border-radius: 16px;
-      padding: 2rem 1.5rem;
-      transition: transform 0.2s, box-shadow 0.2s;
+      padding: 2.5rem 2rem 2.5rem 0;
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      transition: background 0.2s;
     }
 
-    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(200,146,42,0.15); }
+    .card:last-child { border-right: none; }
 
-    .card-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+    .card:hover { background: var(--cream); }
+
+    .card-num {
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
 
     .card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      color: var(--brown);
-      margin-bottom: 0.6rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.01em;
     }
 
-    .card p { font-size: 0.92rem; color: #7A5C2E; line-height: 1.6; }
+    .card p { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.7; font-weight: 300; }
 
     /* ABOUT */
     .about {
-      background: var(--gold-muted);
-      padding: 4rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 3rem;
-      flex-wrap: wrap;
+      background: var(--cream);
+      border-bottom: 1px solid var(--rule);
     }
 
-    .about-img {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    .about-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 5rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about-portrait {
+      aspect-ratio: 4/5;
+      background: var(--cream-dark);
+      border: 1px solid var(--rule);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 5rem;
-      flex-shrink: 0;
+      color: var(--accent);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 8rem;
+      font-weight: 300;
     }
 
-    .about-text { max-width: 460px; }
+    .about-text { }
 
     .about-text h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      color: var(--brown);
-      margin-bottom: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 300;
+      color: var(--ink);
+      margin-bottom: 1.8rem;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
     }
 
-    .about-text p { line-height: 1.8; color: var(--brown); margin-bottom: 0.8rem; font-weight: 300; }
+    .about-text p {
+      line-height: 1.9;
+      color: var(--ink-soft);
+      margin-bottom: 1.2rem;
+      font-weight: 300;
+      font-size: 0.97rem;
+    }
+
+    .about-text .btn { margin-top: 1.2rem; }
 
     /* TESTIMONIALS */
     .testimonials {
-      padding: 4rem 2rem;
-      text-align: center;
-      background: var(--white);
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 5rem 2.5rem;
+      border-bottom: 1px solid var(--rule);
     }
 
     .testi-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      max-width: 860px;
-      margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0;
+      border-top: 1px solid var(--rule);
+      margin-top: 3.5rem;
     }
 
     .testi {
-      background: var(--gold-pale);
-      border-left: 4px solid var(--gold);
-      border-radius: 12px;
-      padding: 1.6rem;
-      text-align: left;
+      padding: 2.5rem 2rem 2.5rem 0;
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
     }
 
-    .testi p { font-style: italic; color: var(--brown); line-height: 1.7; margin-bottom: 0.8rem; font-size: 0.95rem; }
-    .testi span { font-weight: 700; color: var(--gold); font-size: 0.9rem; }
+    .testi:last-child { border-right: none; }
+
+    .testi-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.75;
+      margin-bottom: 1.2rem;
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+
+    .testi-author {
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
 
     /* CONTACT */
     .contact {
-      background: var(--gold-pale);
-      padding: 4rem 2rem;
-      text-align: center;
+      background: var(--cream);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .contact-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 5rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .contact-left h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.01em;
+    }
+
+    .contact-left p {
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      font-weight: 300;
     }
 
     .contact form {
-      max-width: 500px;
-      margin: 2rem auto 0;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 0;
     }
 
     .contact input,
     .contact textarea {
-      padding: 0.85rem 1.1rem;
-      border: 1.5px solid var(--gold-muted);
-      border-radius: 10px;
-      font-family: 'Lato', sans-serif;
-      font-size: 0.95rem;
-      background: var(--white);
-      color: var(--text);
+      padding: 1rem 0;
+      border: none;
+      border-bottom: 1px solid var(--rule);
+      background: transparent;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      color: var(--ink);
+      font-weight: 300;
       outline: none;
       transition: border-color 0.2s;
+      width: 100%;
     }
 
     .contact input:focus,
-    .contact textarea:focus { border-color: var(--gold); }
+    .contact textarea:focus { border-bottom-color: var(--ink); }
 
-    .contact textarea { resize: vertical; min-height: 120px; }
+    .contact input::placeholder,
+    .contact textarea::placeholder { color: var(--accent); }
+
+    .contact textarea { resize: none; min-height: 100px; margin-top: 0.5rem; }
 
     .contact button {
-      background: var(--gold);
-      color: var(--white);
+      margin-top: 2.5rem;
+      align-self: flex-start;
+      background: none;
       border: none;
-      padding: 0.9rem;
-      border-radius: 32px;
-      font-size: 1rem;
-      font-weight: 700;
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       cursor: pointer;
-      transition: background 0.2s;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 2px;
+      transition: opacity 0.2s;
     }
 
-    .contact button:hover { background: var(--brown); }
+    .contact button:hover { opacity: 0.5; }
 
     /* FOOTER */
     footer {
-      background: var(--brown);
-      color: var(--gold-muted);
-      text-align: center;
-      padding: 1.5rem 2rem;
-      font-size: 0.88rem;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 1.8rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      font-weight: 300;
     }
 
     /* MOBILE */
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
       .hamburger { display: flex; }
 
       .nav-links {
@@ -345,20 +475,28 @@
         top: 100%;
         left: 0;
         right: 0;
-        background: var(--white);
-        border-bottom: 2px solid var(--gold-muted);
-        padding: 1rem 2rem 1.5rem;
-        gap: 1rem;
+        background: var(--warm-white);
+        border-bottom: 1px solid var(--rule);
+        padding: 1.5rem 2.5rem 2rem;
+        gap: 1.2rem;
       }
 
       .nav-links.open { display: flex; }
-
       nav { position: relative; }
 
-      .about { flex-direction: column; text-align: center; }
-      .about-img { width: 160px; height: 160px; font-size: 3.5rem; }
+      .hero-bottom { flex-direction: column; align-items: flex-start; }
 
-      .nav-right { gap: 0.8rem; }
+      .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .about-portrait { max-height: 300px; }
+
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+
+      .card { border-right: none; padding-right: 0; }
+      .testi { border-right: none; padding-right: 0; }
+
+      nav { padding: 1rem 1.5rem; }
+      .hero { padding: 4rem 1.5rem 4rem; }
+      .services, .testimonials, .contact-inner, .about-inner, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
     }
   </style>
 </head>
@@ -386,33 +524,38 @@
 
   <!-- HERO -->
   <section class="hero">
-    <h1 data-en="Your Journey to <span>Inner Clarity</span><br>Starts Here" data-ru="Ваш путь к <span>внутренней ясности</span><br>начинается здесь">Your Journey to <span>Inner Clarity</span><br>Starts Here</h1>
-    <p data-en="Compassionate, evidence-based therapy to help you navigate life's challenges and rediscover your sense of self." data-ru="Сострадательная терапия, основанная на доказательствах, поможет вам справиться с жизненными трудностями и вновь обрести себя.">Compassionate, evidence-based therapy to help you navigate life's challenges and rediscover your sense of self.</p>
-    <a href="#contact" class="btn" data-en="Schedule a Free Consultation" data-ru="Записаться на бесплатную консультацию">Schedule a Free Consultation</a>
+    <p class="hero-label" data-en="Clinical Psychology · Evidence-Based Therapy" data-ru="Клиническая психология · Доказательная терапия">Clinical Psychology · Evidence-Based Therapy</p>
+    <h1 data-en="Your journey to <em>inner clarity</em><br>starts here." data-ru="Ваш путь к <em>внутренней ясности</em><br>начинается здесь.">Your journey to <em>inner clarity</em><br>starts here.</h1>
+    <div class="hero-bottom">
+      <p data-en="Compassionate, evidence-based therapy to help you navigate life's challenges and rediscover your sense of self." data-ru="Сострадательная терапия, основанная на доказательствах, поможет вам справиться с жизненными трудностями и вновь обрести себя.">Compassionate, evidence-based therapy to help you navigate life's challenges and rediscover your sense of self.</p>
+      <a href="#contact" class="btn btn-arrow" data-en="Schedule a Free Consultation" data-ru="Бесплатная консультация">Schedule a Free Consultation</a>
+    </div>
   </section>
 
   <!-- SERVICES -->
   <section class="services" id="services">
-    <p class="section-sub" data-en="What I Offer" data-ru="Что я предлагаю">What I Offer</p>
-    <h2 class="section-title" data-en="Areas of Support" data-ru="Направления работы">Areas of Support</h2>
+    <div class="section-header">
+      <h2 class="section-title" data-en="Areas of Support" data-ru="Направления работы">Areas of Support</h2>
+      <span class="section-label" data-en="What I Offer" data-ru="Что я предлагаю">What I Offer</span>
+    </div>
     <div class="cards">
       <div class="card">
-        <div class="card-icon">🧠</div>
+        <p class="card-num">01</p>
         <h3 data-en="Anxiety & Stress" data-ru="Тревога и стресс">Anxiety & Stress</h3>
         <p data-en="Learn tools to calm your nervous system and build resilience for everyday challenges." data-ru="Освойте техники успокоения нервной системы и повысьте устойчивость к ежедневным трудностям.">Learn tools to calm your nervous system and build resilience for everyday challenges.</p>
       </div>
       <div class="card">
-        <div class="card-icon">💛</div>
+        <p class="card-num">02</p>
         <h3 data-en="Depression" data-ru="Депрессия">Depression</h3>
         <p data-en="Gentle, structured support to help you reconnect with meaning and motivation." data-ru="Мягкая, структурированная поддержка для восстановления смысла и мотивации.">Gentle, structured support to help you reconnect with meaning and motivation.</p>
       </div>
       <div class="card">
-        <div class="card-icon">🤝</div>
+        <p class="card-num">03</p>
         <h3 data-en="Relationships" data-ru="Отношения">Relationships</h3>
         <p data-en="Improve communication patterns and build deeper, more fulfilling connections." data-ru="Улучшите паттерны общения и создайте более глубокие, наполненные связи.">Improve communication patterns and build deeper, more fulfilling connections.</p>
       </div>
       <div class="card">
-        <div class="card-icon">🌱</div>
+        <p class="card-num">04</p>
         <h3 data-en="Personal Growth" data-ru="Личностный рост">Personal Growth</h3>
         <p data-en="Explore your values and potential through introspection and goal-oriented therapy." data-ru="Исследуйте свои ценности и потенциал через самоанализ и целенаправленную терапию.">Explore your values and potential through introspection and goal-oriented therapy.</p>
       </div>
@@ -421,51 +564,62 @@
 
   <!-- ABOUT -->
   <section class="about" id="about">
-    <div class="about-img">🌿</div>
-    <div class="about-text">
-      <h2 data-en="Hi, I'm Dr. Sarah Ellis" data-ru="Привет, я доктор Сара Эллис">Hi, I'm Dr. Sarah Ellis</h2>
-      <p data-en="I'm a licensed clinical psychologist with over 12 years of experience helping individuals and couples navigate anxiety, depression, trauma, and life transitions." data-ru="Я лицензированный клинический психолог с более чем 12-летним опытом помощи людям и парам в преодолении тревоги, депрессии, травм и жизненных перемен.">I'm a licensed clinical psychologist with over 12 years of experience helping individuals and couples navigate anxiety, depression, trauma, and life transitions.</p>
-      <p data-en="My approach blends Cognitive Behavioral Therapy (CBT) with mindfulness practices, creating a warm, non-judgmental space for real, lasting change." data-ru="Мой подход сочетает когнитивно-поведенческую терапию (КПТ) с практиками осознанности, создавая тёплое, безоценочное пространство для настоящих, долгосрочных изменений.">My approach blends Cognitive Behavioral Therapy (CBT) with mindfulness practices, creating a warm, non-judgmental space for real, lasting change.</p>
-      <a href="#contact" class="btn" data-en="Work With Me" data-ru="Работать со мной">Work With Me</a>
+    <div class="about-inner">
+      <div class="about-portrait">🌿</div>
+      <div class="about-text">
+        <p class="section-label" style="margin-bottom:1.5rem" data-en="About the Therapist" data-ru="О терапевте">About the Therapist</p>
+        <h2 data-en="Hi, I'm<br>Dr. Sarah Ellis" data-ru="Привет,<br>я доктор Сара Эллис">Hi, I'm<br>Dr. Sarah Ellis</h2>
+        <p data-en="I'm a licensed clinical psychologist with over 12 years of experience helping individuals and couples navigate anxiety, depression, trauma, and life transitions." data-ru="Я лицензированный клинический психолог с более чем 12-летним опытом помощи людям и парам в преодолении тревоги, депрессии, травм и жизненных перемен.">I'm a licensed clinical psychologist with over 12 years of experience helping individuals and couples navigate anxiety, depression, trauma, and life transitions.</p>
+        <p data-en="My approach blends Cognitive Behavioral Therapy (CBT) with mindfulness practices, creating a warm, non-judgmental space for real, lasting change." data-ru="Мой подход сочетает когнитивно-поведенческую терапию (КПТ) с практиками осознанности, создавая тёплое, безоценочное пространство для настоящих, долгосрочных изменений.">My approach blends Cognitive Behavioral Therapy (CBT) with mindfulness practices, creating a warm, non-judgmental space for real, lasting change.</p>
+        <a href="#contact" class="btn btn-arrow" data-en="Work With Me" data-ru="Работать со мной">Work With Me</a>
+      </div>
     </div>
   </section>
 
   <!-- TESTIMONIALS -->
   <section class="testimonials" id="testimonials">
-    <p class="section-sub" data-en="Client Stories" data-ru="Истории клиентов">Client Stories</p>
-    <h2 class="section-title" data-en="What People Are Saying" data-ru="Что говорят клиенты">What People Are Saying</h2>
+    <div class="section-header">
+      <h2 class="section-title" data-en="What People Are Saying" data-ru="Что говорят клиенты">What People Are Saying</h2>
+      <span class="section-label" data-en="Client Stories" data-ru="Истории клиентов">Client Stories</span>
+    </div>
     <div class="testi-grid">
       <div class="testi">
-        <p data-en="&ldquo;Working with Dr. Ellis changed my life. I finally feel like I have the tools to manage my anxiety.&rdquo;" data-ru="«Работа с доктором Эллис изменила мою жизнь. Наконец-то у меня есть инструменты для управления тревогой.»">"Working with Dr. Ellis changed my life. I finally feel like I have the tools to manage my anxiety."</p>
-        <span>— Jamie T.</span>
+        <p class="testi-quote" data-en="&ldquo;Working with Dr. Ellis changed my life. I finally feel like I have the tools to manage my anxiety.&rdquo;" data-ru="«Работа с доктором Эллис изменила мою жизнь. Наконец-то у меня есть инструменты для управления тревогой.»">"Working with Dr. Ellis changed my life. I finally feel like I have the tools to manage my anxiety."</p>
+        <span class="testi-author">— Jamie T.</span>
       </div>
       <div class="testi">
-        <p data-en="&ldquo;The sessions are warm, thoughtful, and genuinely transformative. I can't recommend her enough.&rdquo;" data-ru="«Сессии тёплые, вдумчивые и по-настоящему преобразующие. Я не могу не рекомендовать её.»">"The sessions are warm, thoughtful, and genuinely transformative. I can't recommend her enough."</p>
-        <span>— Marcus L.</span>
+        <p class="testi-quote" data-en="&ldquo;The sessions are warm, thoughtful, and genuinely transformative. I can't recommend her enough.&rdquo;" data-ru="«Сессии тёплые, вдумчивые и по-настоящему преобразующие. Я не могу не рекомендовать её.»">"The sessions are warm, thoughtful, and genuinely transformative. I can't recommend her enough."</p>
+        <span class="testi-author">— Marcus L.</span>
       </div>
       <div class="testi">
-        <p data-en="&ldquo;I came in skeptical and left with real strategies. The approach here is different — it actually works.&rdquo;" data-ru="«Я пришёл скептически настроенным, а ушёл с реальными стратегиями. Подход здесь другой — он действительно работает.»">"I came in skeptical and left with real strategies. The approach here is different — it actually works."</p>
-        <span>— Priya M.</span>
+        <p class="testi-quote" data-en="&ldquo;I came in skeptical and left with real strategies. The approach here is different — it actually works.&rdquo;" data-ru="«Я пришёл скептически настроенным, а ушёл с реальными стратегиями. Подход здесь другой — он действительно работает.»">"I came in skeptical and left with real strategies. The approach here is different — it actually works."</p>
+        <span class="testi-author">— Priya M.</span>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section class="contact" id="contact">
-    <p class="section-sub" data-en="Get In Touch" data-ru="Свяжитесь со мной">Get In Touch</p>
-    <h2 class="section-title" data-en="Book a Session" data-ru="Записаться на приём">Book a Session</h2>
-    <form onsubmit="event.preventDefault(); alert(currentLang === 'ru' ? 'Спасибо! Мы скоро свяжемся с вами.' : 'Thank you! We\'ll be in touch soon.');">
-      <input type="text" data-placeholder-en="Your Name" data-placeholder-ru="Ваше имя" placeholder="Your Name" required />
-      <input type="email" data-placeholder-en="Email Address" data-placeholder-ru="Электронная почта" placeholder="Email Address" required />
-      <input type="tel" data-placeholder-en="Phone Number (optional)" data-placeholder-ru="Телефон (необязательно)" placeholder="Phone Number (optional)" />
-      <textarea data-placeholder-en="What brings you here? (optional)" data-placeholder-ru="Что вас привело? (необязательно)" placeholder="What brings you here? (optional)"></textarea>
-      <button type="submit" data-en="Send Message" data-ru="Отправить сообщение">Send Message</button>
-    </form>
+    <div class="contact-inner">
+      <div class="contact-left">
+        <p class="section-label" style="margin-bottom:1.5rem" data-en="Get In Touch" data-ru="Свяжитесь со мной">Get In Touch</p>
+        <h2 data-en="Ready to begin<br>your journey?" data-ru="Готовы начать<br>свой путь?">Ready to begin<br>your journey?</h2>
+        <p data-en="Schedule a free 20-minute consultation to see if we're a good fit. Sessions available online and in-person." data-ru="Запишитесь на бесплатную 20-минутную консультацию, чтобы понять, подходим ли мы друг другу. Сессии доступны онлайн и очно.">Schedule a free 20-minute consultation to see if we're a good fit. Sessions available online and in-person.</p>
+      </div>
+      <form onsubmit="event.preventDefault(); alert(currentLang === 'ru' ? 'Спасибо! Мы скоро свяжемся с вами.' : 'Thank you! We\'ll be in touch soon.');">
+        <input type="text" data-placeholder-en="Your Name" data-placeholder-ru="Ваше имя" placeholder="Your Name" required />
+        <input type="email" data-placeholder-en="Email Address" data-placeholder-ru="Электронная почта" placeholder="Email Address" required />
+        <input type="tel" data-placeholder-en="Phone Number (optional)" data-placeholder-ru="Телефон (необязательно)" placeholder="Phone Number (optional)" />
+        <textarea data-placeholder-en="What brings you here? (optional)" data-placeholder-ru="Что вас привело? (необязательно)" placeholder="What brings you here? (optional)"></textarea>
+        <button type="submit" data-en="Send Message →" data-ru="Отправить сообщение →">Send Message →</button>
+      </form>
+    </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p data-en="&copy; 2026 Mindful Psychology · All rights reserved" data-ru="&copy; 2026 Осознанная Психология · Все права защищены">&copy; 2026 Mindful Psychology · All rights reserved</p>
+    <p data-en="&copy; 2026 Mindful Psychology" data-ru="&copy; 2026 Осознанная Психология">&copy; 2026 Mindful Psychology</p>
+    <p data-en="All rights reserved" data-ru="Все права защищены">All rights reserved</p>
   </footer>
 
   <script>
@@ -481,13 +635,11 @@
       document.getElementById('btnEn').classList.toggle('active', lang === 'en');
       document.getElementById('btnRu').classList.toggle('active', lang === 'ru');
 
-      // Translate all elements with data-en / data-ru
       document.querySelectorAll('[data-en]').forEach(el => {
         const text = el.getAttribute('data-' + lang);
         if (text) el.innerHTML = text;
       });
 
-      // Translate placeholders
       document.querySelectorAll('[data-placeholder-en]').forEach(el => {
         el.placeholder = el.getAttribute('data-placeholder-' + lang);
       });
